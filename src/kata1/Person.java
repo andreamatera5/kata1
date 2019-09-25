@@ -6,12 +6,12 @@ public class Person {
 
     private final String name;
     private final Date birthday;
-    private final int MS_PER_SECOND = 1000;
-    private final int SECOND_PER_MINUTE = 60;
-    private final int MINUTES_PER_HOURS = 60;
-    private final int HOURS_PER_DAY = 24;
-    private final int DAYS_PER_YEAR = 365;
-    private final int MS_PER_YEAR = MS_PER_SECOND * SECOND_PER_MINUTE * MINUTES_PER_HOURS * HOURS_PER_DAY * DAYS_PER_YEAR;
+    private static final int MS_PER_SECOND = 1000;
+    private static final int SECOND_PER_MINUTE = 60;
+    private static final int MINUTES_PER_HOURS = 60;
+    private static final int HOURS_PER_DAY = 24;
+    private static final int DAYS_PER_YEAR = 365;
+    private static final int MS_PER_YEAR = MS_PER_SECOND * SECOND_PER_MINUTE * MINUTES_PER_HOURS * HOURS_PER_DAY * DAYS_PER_YEAR;
 
     public Person(String name, Date birthday) {
         this.name = name;
@@ -29,6 +29,11 @@ public class Person {
     public int getAge() {
         long ms = new Date().getTime() - birthday.getTime();
         return (int) (ms / MS_PER_YEAR);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "name=" + name + ", birthday=" + birthday + '}';
     }
     
 
